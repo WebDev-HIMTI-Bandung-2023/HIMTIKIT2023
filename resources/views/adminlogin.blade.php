@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+    @if (session()->has('LoginError'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('LoginError') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <form action="/admin" method="POST">
         @csrf
         <div class="mb-3">
@@ -18,5 +24,4 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    
 @endsection

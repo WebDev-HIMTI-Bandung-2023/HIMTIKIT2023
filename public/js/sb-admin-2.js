@@ -7,10 +7,6 @@
     $(".sidebar").toggleClass("toggled");
     if ($(".sidebar").hasClass("toggled")) {
       $('.sidebar .collapse').collapse('hide');
-      $('.CardWelcome').addClass("d-none");
-    }
-    else {
-      $('.CardWelcome').removeClass("d-none");
     };
   });
 
@@ -18,10 +14,6 @@
   $(window).resize(function () {
     if ($(window).width() < 768) {
       $('.sidebar .collapse').collapse('hide');
-      $('.CardWelcome').addClass("d-none");
-    }
-    else {
-      $('.CardWelcome').removeClass("d-none");
     };
 
     // Toggle the side navigation when window is resized below 480px
