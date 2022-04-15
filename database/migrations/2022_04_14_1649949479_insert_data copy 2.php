@@ -39,7 +39,7 @@ return new class extends Migration
         // Testing
         DB::table('msadminpassword')->insert(['BinusianID' => '24', 'PasswordAdmin' => '$2y$10$A67m/I5sdq.bvxg8oeRd3eT7s0Hz4Cr9r8x9Fgs1pcU1rbaAL9nua']);
 
-        DB::table('msmodule')->insert(['ModuleName' => 'Course', 'ModuleLink' => '/course']);
+        DB::table('msmodule')->insert(['ModuleName' => 'Course', 'ModuleLink' => '/']);
         DB::table('msmodule')->insert(['ModuleName' => 'Admin', 'ModuleLink' => '/admin']);
 
         DB::table('msprivilege')->insert(['ModuleID' => '1', 'BinusianID' => '24']);

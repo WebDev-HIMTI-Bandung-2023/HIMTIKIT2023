@@ -29,7 +29,7 @@
 
     <!-- Styles -->
     <!-- Custom styles for this template-->
-    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Custom fonts for this template-->
@@ -53,7 +53,8 @@
 
 <body class="sidebar-toggled">
     {{-- Top Bar --}}
-    <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow sticky-top">
+    <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow sticky-top"
+        style="background-color: #7C99AC !important; color:#000000!important">
 
         <!-- Sidebar Toggle (Topbar) -->
         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -74,7 +75,7 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Session::get('Name') }}</span>
+                        <span class="mr-2 d-none d-lg-inline text-white small">{{ Session::get('Name') }}</span>
                         <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
                     </a>
                     <!-- Dropdown - User Information -->
@@ -108,7 +109,8 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar"
+            style="background-color: #E8F1F5 !important">
 
             <!-- Sidebar - Brand -->
             {{-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -118,26 +120,75 @@
                 <div class="sidebar-brand-text mx-3">HIMTI</div>
             </a> --}}
             <div>
-                <div class="card mx-auto CardWelcome mt-2" style="width: 90%;">
+                <div class="card mx-auto CardWelcome my-2" style="width: 90%;">
                     <div class="card-body">
                         <h6 class="card-title">Hello, {{ Session::get('Name') }}</h6>
                         <h6 class="card-subtitle mb-2 text-muted">{{ Session::get('NIM') }}</h6>
                     </div>
                 </div>
             </div>
+            <style>
+                .ListItem {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-bottom: 10px;
+                }
+
+                .ListItem div {
+                    background-color: #E5E5E5;
+                    width: 55%;
+                    item-align: right !important;
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                }
+
+                .ListItem div .nav-link {
+                    padding: 1rem !important;
+                    width: 100% !important;
+                }
+
+                .ListItem .active {
+                    background-color: #7C99AC;
+                    width: 80%;
+                    item-align: right !important;
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                }
+
+                @media (max-width: 768px) {
+
+
+                    .sidebar {
+                        width: 240px !important;
+                        position: absolute;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .sidebar .toggled {
+                        width: 240px !important;
+
+                    }
+                }
+
+            </style>
             @if (Session::get('ListModule') != null || Session::get('isAdmin') != null)
                 @foreach (Session::get('ListModule') as $module)
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ $module->ModuleLink }}">
-                            <i class="fas fa-fw fa-calendar"></i>
-                            <span>{{ $module->ModuleName }}</span></a>
+                    <li class="ListItem nav-item">
+                        <div class="@if (session()->get('activemenu') == $module->ModuleName) active @endif">
+                            <a class="nav-link" href="{{ $module->ModuleLink }}">
+                                <i class="fas fa-fw fa-calendar"></i>
+                                <span class="fw-bold">{{ $module->ModuleName }}</span></a>
+                        </div>
                     </li>
                 @endforeach
                 @if (Session::get('isAdmin') != null)
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin">
-                            <i class="fas fa-fw fa-calendar"></i>
-                            <span>Admin</span></a>
+                    <li class="nav-item ListItem">
+                        <div class="@if (session()->get('activemenu') == 'Admin') active @endif">
+                            <a class="nav-link" href="/admin">
+                                <i class="fas fa-fw fa-calendar"></i>
+                                <span class="fw-bold">Admin</span></a>
+                        </div>
                     </li>
                 @endif
             @else
@@ -147,12 +198,6 @@
                         <span>No Module</span></a>
                 </li>
             @endif
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0 mb-2">
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
         </ul>
         <!-- End of Sidebar -->
 

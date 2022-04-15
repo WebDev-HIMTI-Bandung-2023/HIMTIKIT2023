@@ -25,6 +25,7 @@ class AdminController extends Controller
                 return redirect('/');
             } else {
                 // dd($isadmin);
+                $request->session()->put('activemenu', 'Admin');
                 return view('adminlogin', ['BinusianList' => $isadmin]);
             }
         } else {

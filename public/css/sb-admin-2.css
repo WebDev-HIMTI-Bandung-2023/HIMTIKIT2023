@@ -2909,12 +2909,12 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #4e73df;
+  color: white !important;
   text-decoration: none;
 }
 
 .btn-link:hover {
-  color: #224abe;
+  color: white !important;
   text-decoration: underline;
 }
 
@@ -10177,11 +10177,11 @@ a:focus {
 }
 
 .topbar #sidebarToggleTop:hover {
-  background-color: #eaecf4;
+  background-color: #3A4145;
 }
 
 .topbar #sidebarToggleTop:active {
-  background-color: #dddfeb;
+  background-color: #3A4145;
 }
 
 .topbar .navbar-search {
@@ -10321,7 +10321,7 @@ a:focus {
 
 .sidebar {
   width: 6.5rem;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .sidebar .nav-item {
@@ -10334,12 +10334,13 @@ a:focus {
 
 .sidebar .nav-item .nav-link {
   text-align: center;
+  display: flex;
   padding: 0.75rem 1rem;
   width: 6.5rem;
 }
 
 .sidebar .nav-item .nav-link span {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   display: block;
 }
 
@@ -10509,7 +10510,7 @@ a:focus {
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 20rem !important;
+    width: 320px !important;
   }
   .sidebar .nav-item .collapse {
     position: relative;
@@ -10570,7 +10571,7 @@ a:focus {
   }
   .sidebar.toggled {
     overflow: visible;
-    width: 6.5rem !important;
+    width: 240px !important;
   }
   .sidebar.toggled .nav-item .collapse {
     position: absolute;
@@ -10601,11 +10602,12 @@ a:focus {
   }
   .sidebar.toggled .nav-item .nav-link {
     text-align: center;
+    display: flex;
     padding: 0.75rem 1rem;
     width: 6.5rem;
   }
   .sidebar.toggled .nav-item .nav-link span {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     display: block;
   }
   .sidebar.toggled .nav-item .nav-link i {
@@ -10638,11 +10640,11 @@ a:focus {
 }
 
 .sidebar-light .nav-item .nav-link {
-  color: #858796;
+  color: #3A4145;
 }
 
 .sidebar-light .nav-item .nav-link i {
-  color: #d1d3e2;
+  color: #3A4145;
 }
 
 .sidebar-light .nav-item .nav-link:active, .sidebar-light .nav-item .nav-link:focus, .sidebar-light .nav-item .nav-link:hover {
