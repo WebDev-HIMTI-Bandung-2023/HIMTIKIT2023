@@ -22,14 +22,14 @@ class AdminController extends Controller
         if ($request->session()->get('NIM')) {
             $isadmin = DB::select("select * from msadmin as ms JOIN msbinusianid AS mbdi ON mbdi.BinusianID = ms.BinusianID WHERE NIM = '" . $request->session()->get('NIM') . "'");
             if ($isadmin == null) {
-                return redirect('/');
+                return redirect('/')->with('LoginError', 'Admin Account Invalid!');
             } else {
                 // dd($isadmin);
                 $request->session()->put('activemenu', 'Admin');
                 return view('adminlogin', ['BinusianList' => $isadmin]);
             }
         } else {
-            return redirect('/login');
+            return redirect('/login')->with('LoginError', 'Session Expired!');
         }
     }
 
@@ -44,7 +44,7 @@ class AdminController extends Controller
             $Binusian = DB::Table('msbinusianid')->where('BinusianID', $request->BinusianID)->first();
             return view('admin', ['Major' => $major, 'Course' => $Course, 'smt' => $Smt, 'Binusian' => $Binusian]);
         } else {
-            return redirect('/admin');
+            return redirect('/admin')->with('LoginError', 'Password Invalid!');
         }
     }
 
