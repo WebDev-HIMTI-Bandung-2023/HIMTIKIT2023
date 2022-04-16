@@ -58,7 +58,7 @@
 
         <!-- Sidebar Toggle (Topbar) -->
         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars" id="IconBar"></i>
         </button>
         <h3 class="WelcomeText">Welcome to HIMTI KIT,</h3>
 
@@ -109,8 +109,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar"
-            style="background-color: #E8F1F5 !important">
+        <ul class="navbar-nav sidebar sidebar-light accordion toggled" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             {{-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -128,48 +127,7 @@
                 </div>
             </div>
             <style>
-                .ListItem {
-                    display: flex;
-                    justify-content: flex-end;
-                    margin-bottom: 10px;
-                }
-
-                .ListItem div {
-                    background-color: #E5E5E5;
-                    width: 55%;
-                    item-align: right !important;
-                    border-top-left-radius: 20px;
-                    border-bottom-left-radius: 20px;
-                }
-
-                .ListItem div .nav-link {
-                    padding: 1rem !important;
-                    width: 100% !important;
-                }
-
-                .ListItem .active {
-                    background-color: #7C99AC;
-                    width: 80%;
-                    item-align: right !important;
-                    border-top-left-radius: 20px;
-                    border-bottom-left-radius: 20px;
-                }
-
-                @media (max-width: 768px) {
-
-
-                    .sidebar {
-                        width: 240px !important;
-                        position: absolute;
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    .sidebar .toggled {
-                        width: 240px !important;
-
-                    }
-                }
+            
 
             </style>
             @if (Session::get('ListModule') != null || Session::get('isAdmin') != null)
