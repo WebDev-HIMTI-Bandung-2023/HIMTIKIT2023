@@ -37,18 +37,6 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    <style>
-        .WelcomeText {
-            display: none;
-        }
-
-        @media (min-width:768px) {
-            .WelcomeText {
-                display: block;
-            }
-        }
-
-    </style>
 </head>
 
 <body class="sidebar-toggled">
@@ -127,7 +115,7 @@
                 </div>
             </div>
             <style>
-            
+
 
             </style>
             @if (Session::get('ListModule') != null || Session::get('isAdmin') != null)
@@ -140,7 +128,7 @@
                         </div>
                     </li>
                 @endforeach
-                @if (Session::get('isAdmin') != null)
+                @if (Session::get('isAdmin') == 'True')
                     <li class="nav-item ListItem">
                         <div class="@if (session()->get('activemenu') == 'Admin') active @endif">
                             <a class="nav-link" href="/admin">
@@ -203,21 +191,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-    <script src="fonts/vendor/jquery/jquery.min.js"></script>
-    <script src="fonts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('fonts/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('fonts/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="fonts/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{ asset('fonts/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.js"></script>
+    <script src="{{ asset('js/sb-admin-2.js') }}"></script>
 
     <!-- Page level plugins -->
-    <script src="fonts/vendor/chart.js/Chart.min.js"></script>
+    <script src="{{ asset('fonts/vendor/chart.js/Chart.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
 </body>
 
 </html>
