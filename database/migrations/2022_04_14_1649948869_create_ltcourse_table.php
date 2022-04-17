@@ -10,11 +10,11 @@ class CreateLtcourseTable extends Migration
     {
         Schema::create('ltcourse', function (Blueprint $table) {
 
-		$table->integer('CourseID',11);
-		$table->string('CourseName');
-		$table->string('CourseDescription');
-		$table->string('FileName');
-
+            $table->integer('CourseID', 11);
+            $table->string('CourseName');
+            $table->string('CourseImage');
+            $table->string('CourseDescription');
+            $table->string('FileName');
         });
     }
 

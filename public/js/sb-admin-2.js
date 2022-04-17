@@ -25,6 +25,9 @@
   $(window).resize(function () {
     if ($(window).width() < 768) {
       $('.sidebar .collapse').collapse('hide');
+      if ($("#content-wrapper").hasClass("BlockDark")) {
+        $("#content-wrapper").toggleClass("BlockDark");
+      }
     };
 
     // Toggle the side navigation when window is resized below 480px

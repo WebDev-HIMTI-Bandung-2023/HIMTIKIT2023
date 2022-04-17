@@ -35,7 +35,7 @@ class LoginController extends Controller
         }
         $ListModule = DB::select("select * from msprivilege as mp JOIN msmodule AS mm ON mm.ModuleID = mp.ModuleID WHERE BinusianID = LEFT('" . $nim . "', 2)");
         $isadmin = DB::select("select * from msadmin as ms JOIN msbinusianid AS mbdi ON mbdi.BinusianID = ms.BinusianID WHERE NIM = '" . $nim  . "'");
-        $request->session()->put('isAdmin', $isadmin);
+        $request->session()->put('isAdmin', 'True');
         $request->session()->put('ListModule', $ListModule);
         $request->session()->put('Name', $attendee->Name);
         $request->session()->put('NIM', $attendee->NIM);

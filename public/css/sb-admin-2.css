@@ -9799,6 +9799,7 @@ a:focus {
 #wrapper #content-wrapper {
   background-color: #f8f9fc;
   width: 100%;
+  min-height: 90vh;
   overflow-x: hidden;
 }
 
@@ -11329,5 +11330,14 @@ body.sidebar-toggled footer.sticky-footer {
 @media (max-width: 768px) {
     .sidebar .toggled {
         width: 240px !important;
+    }
+}
+.WelcomeText {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .WelcomeText {
+        display: block;
     }
 }
