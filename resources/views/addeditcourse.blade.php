@@ -86,7 +86,8 @@
                 </script>
             @endif
         </div>
-        <a onclick="AddRow()" class="btn btn-primary mb-3">Add Row</a>
+        <a onclick="AddRow()" class="btn btn-primary mb-3"><i
+                            class="fas fa-plus-circle fa-sm fa-fw mr-2 text-white-400"></i>Add Row</a>
         @if($Type == 'edit')
             <div class="mb-3" id="UploadFile">
                 <div class="card">
@@ -94,7 +95,8 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">File Uploaded</h5>
-                                <button type="Delete" class="btn btn-danger align-items-center" onclick="Delete()">Delete</button>
+                                <button type="Delete" class="btn btn-danger align-items-center" onclick="Delete()"><i
+                            class="fas fa-trash-alt fa-sm fa-fw mr-2 text-white-400"></i>Delete</button>
                             </div>
                         </div>
                     </div>
@@ -109,7 +111,8 @@
             <input type="hidden" name="File" value="New" id="File">
         @endif
         <input type="hidden" name="NumberRow" value="0" id="NumberRow">
-        <button type="submit" class="btn btn-primary mb-5">Submit</button>
+        <button type="submit" class="btn btn-success mb-5"><i class="fas fa-save fa-sm fa-fw mr-2 text-white-400"></i>Save</button>
+        
     </form>
     <script>
         document.getElementById("NumberRow").value = count-1;
