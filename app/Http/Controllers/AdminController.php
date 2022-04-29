@@ -115,7 +115,7 @@ class AdminController extends Controller
                 return redirect('/');
             } else {
                 if ($Type == "add") {
-                    $Validate = $request->validate([
+                    $request->validate([
                         'UploadFile' => ['required', 'max:200000']
                     ]);
                     session_start();
@@ -137,8 +137,10 @@ class AdminController extends Controller
                                 DB::insert("INSERT INTO msmajorcourse( MajorID, CourseID, SmtID, BinusianID, AuditUserName, AuditTime) VALUES('" . $request[$MajorName] . "', '" . $CourseData->CourseID . "','" . $request[$SmtName] . "', '" . $BinusianID . "', '" . $request->session()->get('NIM') . "', CURRENT_TIME)");
                             }
                         }
+                        return redirect('/');
+                    } else {
+                        return back();
                     }
-                    return redirect('/admin');
                 } else if ($Type == "edit") {
                     if ($request->File == "Add") {
                         $Validate = $request->validate([
@@ -146,13 +148,15 @@ class AdminController extends Controller
                         ]);
 
                         session_start();
-                        if ($request->hasFile('UploadFile')) {
-                            $filenameWithExt = $request->file('UploadFile')->getClientOriginalName();
-                            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                            $extension = $request->file('UploadFile')->getClientOriginalExtension();
-                            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-                            $path = $request->file('UploadFile')->storeAs('public/files', $fileNameToStore);
-                            DB::update("UPDATE ltcourse SET CourseName = '" . $request->Course . "', CourseDescription = '" . $request->Description . "',CourseImage ='" . $request->Image . "', FileName = '" . $path . "' WHERE CourseID = " . $Course);
+                        if ($Validate) {
+                            if ($request->hasFile('UploadFile')) {
+                                $filenameWithExt = $request->file('UploadFile')->getClientOriginalName();
+                                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                                $extension = $request->file('UploadFile')->getClientOriginalExtension();
+                                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+                                $path = $request->file('UploadFile')->storeAs('public/files', $fileNameToStore);
+                                DB::update("UPDATE ltcourse SET CourseName = '" . $request->Course . "', CourseDescription = '" . $request->Description . "',CourseImage ='" . $request->Image . "', FileName = '" . $path . "' WHERE CourseID = " . $Course);
+                            }
                         }
                     } else {
                         DB::update("UPDATE ltcourse SET CourseName = '" . $request->Course . "', CourseDescription = '" . $request->Description . "',CourseImage ='" . $request->Image . "' WHERE CourseID = " . $Course);
@@ -161,6 +165,7 @@ class AdminController extends Controller
                     for ($i = 0; $i <= $request->NumberRow; $i++) {
                         $MajorName = 'Major_' . $i;
                         $SmtName = 'Semester_' . $i;
+                        dd($request[$MajorName]);
                         $CheckCourse = DB::Table('msmajorcourse')->where('BinusianID', $BinusianID)->where('MajorID', $request[$MajorName])->where('CourseID', $Course)->first();
 
 

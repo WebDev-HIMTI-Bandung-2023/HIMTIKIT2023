@@ -11,20 +11,20 @@
         <div class="mb-3">
             <label for="BinusianID" class="form-label">Binusian ID</label>
             <p type="text" class="form-control" id="BinusianID" aria-describedby="emailHelp" name="BinusianID"
-                value="{{ $Binusian->BinusianID }}">{{ $Binusian->BinusianName }}</p>
+                value="{{ $Binusian->BinusianID }}" value="{{ old('BinusianID') }}" required>{{ $Binusian->BinusianName }}</p>
         </div>
         <div class="mb-3">
             <label for="Course" class="form-label">Course</label>
             <input type="text" class="form-control" id="Course" aria-describedby="Course" name="Course"
-                @if ($Type == 'edit') value="{{ $Course->CourseName }}" @endif>
+                @if ($Type == 'edit') value="{{ $Course->CourseName }}" @endif value="{{ old('Course') }}"required>
         </div>
          <div class="mb-3">
             <label for="Image" class="form-label">Image</label>
-            <input type="text" class="form-control" id="Image" aria-describedby="Image" name="Image"@if ($Type == 'edit') value="{{ $Course->CourseImage }}" @endif>
+            <input type="text" class="form-control" id="Image" aria-describedby="Image" name="Image"@if ($Type == 'edit') value="{{ $Course->CourseImage }}" @endif value="{{ old('Image') }}" required >
         </div>
         <div class="mb-3">
             <p for="Description" class="form-label">Description</p>
-            <textarea class="w-100" name="Description">@if ($Type == 'edit'){{ $Course->CourseDescription }}@endif</textarea>
+            <textarea class="w-100" name="Description" required> {{ old('Description') }}@if ($Type == 'edit'){{ $Course->CourseDescription }}@endif</textarea>
         </div>
         
         <div id="ContainerForm">
@@ -35,7 +35,7 @@
                         <div class="row g-0 ">
                             <div class="col-md-6 p-3">
                                 <label for="Major" class="form-label">Major</label>
-                                <select class="form-select" id="disabledSelect" aria-label="Default select example"  name="Major_{{$Counter}}">
+                                <select class="form-select" id="disabledSelect" aria-label="Default select example"  name="Major_{{$Counter}}" required>
                                     @foreach ($Major as $data)
                                         <option value=" {{ $data->MajorID }}" @if ($dataall->MajorID == $data->MajorID)
                                          selected   
@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-md-6 p-3">
                                 <label for="Semester" class="form-label">Semester</label>
-                                <select class="form-select" aria-label="Default select example" name="Semester_{{$Counter}}">
+                                <select class="form-select" aria-label="Default select example" name="Semester_{{$Counter}}" required >
                                     @foreach ($smt as $data)
                                         <option value=" {{ $data->SmtID }}" @if ($dataall->SmtID == $data->SmtID)
                                          selected   
@@ -65,7 +65,7 @@
                     <div class="row g-0 ">
                         <div class="col-md-6 p-3">
                             <label for="Major" class="form-label">Major</label>
-                            <select class="form-select" aria-label="Default select example" name="Major_0">
+                            <select class="form-select" aria-label="Default select example" name="Major_0" required>
                                 @foreach ($Major as $data)
                                     <option value=" {{ $data->MajorID }}">{{ $data->MajorName }}</option>
                                 @endforeach
@@ -73,7 +73,7 @@
                         </div>
                         <div class="col-md-6 p-3">
                             <label for="Semester" class="form-label">Semester</label>
-                            <select class="form-select" aria-label="Default select example" name="Semester_0">
+                            <select class="form-select" aria-label="Default select example" name="Semester_0" required>
                                 @foreach ($smt as $data)
                                     <option value=" {{ $data->SmtID }}">{{ $data->SmtName }}</option>
                                 @endforeach
@@ -106,7 +106,7 @@
         @else
             <div class="mb-3">
                 <p for="UploadFile" class="form-label">Upload File<br></p>
-                <input type="file" name="UploadFile" id="UploadFile">
+                <input type="file" name="UploadFile" id="UploadFile" required>
             </div>
             <input type="hidden" name="File" value="New" id="File">
         @endif
@@ -132,7 +132,7 @@
                         '<label for="Major" class="form-label">Major</label>'+
                         '<select class="form-select" aria-label="Default select example" name="Major_' 
                         + count +
-                        '">'+
+                        '" required>'+
                             '@foreach ($Major as $data)'+
                                 '<option value=" {{ $data->MajorID }}">{{ $data->MajorName }}</option>'+
                             '@endforeach'+
@@ -142,7 +142,7 @@
                         '<label for="Semester" class="form-label">Semester</label>'+
                         '<select class="form-select" aria-label="Default select example" name="Semester_' + 
                         count +
-                        '">'+
+                        '" required>'+
                             '@foreach ($smt as $data)'+
                                 '<option value=" {{ $data->SmtID }}">{{ $data->SmtName }}</option>'+
                             '@endforeach'+

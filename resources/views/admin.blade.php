@@ -13,7 +13,7 @@
         </div>
     </div>
     @foreach ($Datas as $Data)
-        <div class="CustomCard">
+        <div class="CustomCard my-3">
             <div class="CustomCardImage">
                 <img src="{{ $Data->CourseImage }}" class="img-fluid rounded-start" alt="...">
             </div>
