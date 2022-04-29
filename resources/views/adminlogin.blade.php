@@ -23,7 +23,7 @@
                 <input type="password" class="form-control" id="Password" aria-describedby="emailHelp" name="Password"
                     required>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
 @endsection

@@ -41,7 +41,7 @@
 
 <body class="sidebar-toggled">
     {{-- Top Bar --}}
-    <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow sticky-top"
+    <nav class="navbar navbar-expand navbar-light bg-white topbar shadow fixed-top"
         style="background-color: #7C99AC !important; color:#000000!important">
 
         <!-- Sidebar Toggle (Topbar) -->
@@ -149,11 +149,8 @@
 
         <!-- Main Content -->
         <div id="content-wrapper" class="d-flex flex-column">
-            <div id="content">
 
                 <div class="container mt-5">@yield('content')</div>
-
-            </div>
         </div>
         <!-- End of Content Wrapper -->
 

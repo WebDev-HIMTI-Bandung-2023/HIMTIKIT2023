@@ -10,6 +10,15 @@
       $('.sidebar .collapse').collapse('hide');
     };
   });
+  $("#userDropdown").on('click', function (e) {
+    if (!$(".sidebar").hasClass("toggled")) {
+      $("body").toggleClass("sidebar-toggled");
+      $(".sidebar").toggleClass("toggled");
+      $("#content-wrapper").toggleClass("BlockDark");
+
+      $('.sidebar .collapse').collapse('hide');
+    };
+  });
   window.addEventListener('click', function (e) {
 
     if (e.target != this.document.querySelector('#accordionSidebar') && e.target != this.document.querySelector('#sidebarToggleTop')

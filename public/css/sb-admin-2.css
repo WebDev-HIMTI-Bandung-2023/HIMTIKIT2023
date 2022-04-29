@@ -9794,12 +9794,14 @@ a:focus {
 
 #wrapper {
   display: flex;
+  margin-top: 70px;
 }
 
 #wrapper #content-wrapper {
   background-color: #f8f9fc;
   width: 100%;
   min-height: 90vh;
+  margin-left: 240px;
   overflow-x: hidden;
 }
 
@@ -10511,7 +10513,7 @@ a:focus {
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 320px !important;
+    width: 240px !important;
   }
   .sidebar .nav-item .collapse {
     position: relative;
@@ -10572,7 +10574,7 @@ a:focus {
   }
   .sidebar.toggled {
     overflow: visible;
-    width: 320px !important;
+    width: 240px !important;
   }
   .sidebar.toggled .nav-item .collapse {
     position: absolute;
@@ -11292,7 +11294,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 #accordionSidebar{
   background-color: #E8F1F5 !important;
-  z-index: 1500;
+  z-index: 1050;
+  position: fixed;
 }
 .ListItem {
     display: flex;
@@ -11303,7 +11306,6 @@ body.sidebar-toggled footer.sticky-footer {
 .ListItem div {
     background-color: #e5e5e5;
     width: 55%;
-    item-align: right !important;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
@@ -11321,6 +11323,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 @media (max-width: 768px) {
+    
     .sidebar {
         width: 240px !important;
         position: absolute;
@@ -11331,6 +11334,9 @@ body.sidebar-toggled footer.sticky-footer {
     .sidebar .toggled {
         width: 240px !important;
     }
+    #content-wrapper{
+      margin-left: 0px !important;
+    }
 }
 .WelcomeText {
     display: none;
@@ -11340,4 +11346,41 @@ body.sidebar-toggled footer.sticky-footer {
     .WelcomeText {
         display: block;
     }
+    
+}
+.CustomCard{
+  position: relative;
+  display: flex;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+}
+.CustomCardImage{
+  width: 16.3333%;
+  min-width: 140px;
+  display: flex;
+}
+.CustomCardImage img{
+  margin: auto;
+}
+.CustomCardText{
+  width: 100%;
+  padding: 1rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .CustomCard{
+    flex-direction: column;
+  }
+  .CustomCardImage{
+    width: 100%;
+  }
+  .CustomCardImage img{
+    max-width: 240px;
+    width: 100%;
+    min-width: 120px;
+  }
 }
