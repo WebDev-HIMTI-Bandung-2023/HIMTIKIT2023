@@ -165,7 +165,6 @@ class AdminController extends Controller
                     for ($i = 0; $i <= $request->NumberRow; $i++) {
                         $MajorName = 'Major_' . $i;
                         $SmtName = 'Semester_' . $i;
-                        dd($request[$MajorName]);
                         $CheckCourse = DB::Table('msmajorcourse')->where('BinusianID', $BinusianID)->where('MajorID', $request[$MajorName])->where('CourseID', $Course)->first();
 
 
