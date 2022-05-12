@@ -37,6 +37,15 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <style>
+        #wrapper {
+            background-image: url('../img/SPONSOR\ BANDUNG\ 2.png') !important;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+    </style>
 </head>
 
 <body class="sidebar-toggled">
@@ -150,7 +159,7 @@
         <!-- Main Content -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-                <div class="container mt-5">@yield('content')</div>
+            <div class="container mt-5">@yield('content')</div>
         </div>
         <!-- End of Content Wrapper -->
 
