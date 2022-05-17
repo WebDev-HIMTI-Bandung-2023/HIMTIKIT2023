@@ -1,0 +1,37 @@
+.bg {
+    background: url(../img/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+.text-title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 72px;
+    letter-spacing: -0.015em;
+}
+
+.text-description {
+    max-width: 640px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: -0.015em;
+    line-height: 32px;
+    margin-bottom: 20px;
+}
+
+.input-group-login .form-control {
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+    width: 320px !important;
+    height: 50px;
+    font-size: 20px !important;
+    padding-left: 20px !important;
+}
+
+.btn-login {
+    border-top-right-radius: 75px !important;
+    border-bottom-right-radius: 75px !important;
+}
