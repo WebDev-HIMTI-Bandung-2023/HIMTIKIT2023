@@ -30,7 +30,7 @@
         </div>
     @endif
 
-    <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <div class="container d-flex flex-column min-vh-100 justify-content-center align-items-center">
         <h1 class="text-white text-title">HIMTI KIT</h1>
         <p class="text-white text-description text-justify mw-5">HIMTI KIT adalah kit pembelajaran untuk para mahasiswa
             baru School of
