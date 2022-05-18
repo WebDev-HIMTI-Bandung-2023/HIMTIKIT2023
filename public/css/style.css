@@ -34,3 +34,32 @@
     border-top-right-radius: 75px !important;
     border-bottom-right-radius: 75px !important;
 }
+
+.astronaut {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    width: 100px;
+    animation: astronaut-move 20s forwards;
+}
+
+.comet {
+    position: absolute;
+    top: 150px;
+    left: -250px;
+    width: 200px;
+    animation: comet-move 20s 5s forwards;
+}
+
+@keyframes astronaut-move {
+    to {
+        transform: translate(-300px, -150px) rotate(-360deg);
+    }
+}
+
+@keyframes comet-move {
+    to {
+        transform: translate(500px, -150px);
+        filter: hue-rotate(360deg);
+    }
+}

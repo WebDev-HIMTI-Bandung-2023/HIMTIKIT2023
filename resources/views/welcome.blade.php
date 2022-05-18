@@ -30,6 +30,10 @@
         </div>
     @endif
 
+    {{-- Animation Sequence Asset --}}
+    <img src="./img/astronaut.png" class="astronaut">
+    <img src="./img/comet.png" class="comet">
+
     <div class="container d-flex flex-column min-vh-100 justify-content-center align-items-center">
         <h1 class="text-white text-title">HIMTI KIT</h1>
         <p class="text-white text-description text-justify mw-5">HIMTI KIT adalah kit pembelajaran untuk para mahasiswa
