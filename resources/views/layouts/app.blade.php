@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         #wrapper {
-            background-image: url('../img/SPONSOR\ BANDUNG\ 2.png') !important;
+            background-image: url('../img/bg.png') !important;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
@@ -52,13 +52,16 @@
 <body class="sidebar-toggled">
     {{-- Top Bar --}}
     <nav class="navbar navbar-expand navbar-light bg-white topbar shadow fixed-top"
-        style="background-color: #7C99AC !important; color:#000000!important">
+        style="background-color: #014B7D !important; color:#FAFAFA!important">
 
         <!-- Sidebar Toggle (Topbar) -->
         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars" id="IconBar"></i>
         </button>
-        <h3 class="WelcomeText">Welcome to HIMTI KIT,</h3>
+        <div class="d-flex flex-column">
+            <h3 class="WelcomeText m-0">Welcome to HIMTI KIT,</h3>
+            <p class="WelcomeText m-0">The perfect starter kit for your study in day-to-day basis</p>
+        </div>
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
@@ -117,7 +120,7 @@
                 <div class="sidebar-brand-text mx-3">HIMTI</div>
             </a> --}}
             <div>
-                <div class="card mx-auto CardWelcome my-2" style="width: 90%;">
+                <div class="card mx-auto CardWelcome my-4" style="width: 90%;">
                     <div class="card-body">
                         <h6 class="card-title">Hello, {{ Session::get('Name') }}</h6>
                         <h6 class="card-subtitle mb-2 text-muted">{{ Session::get('NIM') }}</h6>
@@ -141,7 +144,7 @@
                 @if (Session::get('isAdmin') == 'True')
                     <li class="nav-item ListItem">
                         <div class="@if (session()->get('activemenu') == 'Admin') active @endif">
-                            <a class="nav-link" href="/admin">
+                            <a class="nav-link d-flex gap-2 align-items-center" href="/admin">
                                 <i class="fas fa-fw fa-calendar"></i>
                                 <span class="fw-bold">Admin</span></a>
                         </div>
@@ -161,6 +164,12 @@
         <div id="content-wrapper" class="d-flex flex-column">
 
             <div class="container mt-5">@yield('content')</div>
+
+            <!-- Footer -->
+            <div class="footer-wrapper">
+                <span class="fw-bold">HIMTI KIT @2022</span>
+            </div>
+            <!-- End of footer -->
         </div>
         <!-- End of Content Wrapper -->
 

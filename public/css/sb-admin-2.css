@@ -9799,7 +9799,7 @@ a:focus {
 
 #wrapper #content-wrapper {
   width: 100%;
-  min-height: 90vh;
+  min-height: 88vh;
   margin-left: 240px;
   overflow-x: hidden;
 }
@@ -10642,19 +10642,19 @@ a:focus {
 }
 
 .sidebar-light .nav-item .nav-link {
-  color: #3A4145;
+  color: #FAFAFA;
 }
 
 .sidebar-light .nav-item .nav-link i {
-  color: #3A4145;
+  color: #FAFAFA;
 }
 
 .sidebar-light .nav-item .nav-link:active, .sidebar-light .nav-item .nav-link:focus, .sidebar-light .nav-item .nav-link:hover {
-  color: #6e707e;
+  color: #3A4145;
 }
 
 .sidebar-light .nav-item .nav-link:active i, .sidebar-light .nav-item .nav-link:focus i, .sidebar-light .nav-item .nav-link:hover i {
-  color: #6e707e;
+  color: #3A4145;
 }
 
 .sidebar-light .nav-item .nav-link[data-toggle="collapse"]::after {
@@ -11294,6 +11294,7 @@ body.sidebar-toggled footer.sticky-footer {
 #accordionSidebar{
   background-color: #E8F1F5 !important;
   z-index: 1050;
+  height: 100%;
   position: fixed;
 }
 .ListItem {
@@ -11305,8 +11306,8 @@ body.sidebar-toggled footer.sticky-footer {
 .ListItem div {
     background-color: #e5e5e5;
     width: 55%;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .ListItem div .nav-link {
@@ -11315,14 +11316,18 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .ListItem .active {
-    background-color: #7c99ac;
+    background-color: #015791;
     width: 80%;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.ListItem .active a:hover {
+    background-color: #FAFAFA;
 }
 
 @media (max-width: 768px) {
-    
+
     .sidebar {
         width: 240px !important;
         position: absolute;
@@ -11344,8 +11349,9 @@ body.sidebar-toggled footer.sticky-footer {
 @media (min-width: 768px) {
     .WelcomeText {
         display: block;
+        color: #FAFAFA
     }
-    
+
 }
 .CustomCard{
   position: relative;
@@ -11388,4 +11394,12 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.footer-wrapper {
+    background-color: #014B7D;
+    color: white;
+    margin-top: auto;
+    padding: 0.5rem;
+    z-index: 1;
 }
