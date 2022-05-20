@@ -163,7 +163,7 @@
         <!-- Main Content -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <div class="container mt-5">@yield('content')</div>
+            <div class="container my-5">@yield('content')</div>
 
             <!-- Footer -->
             <div class="footer-wrapper">
