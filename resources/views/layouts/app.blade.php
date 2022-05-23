@@ -133,9 +133,9 @@
             </style>
             @if (Session::get('ListModule') != null || Session::get('isAdmin') != null)
                 @foreach (Session::get('ListModule') as $module)
-                    <li class="ListItem nav-item">
+                    <li class="nav-item ListItem">
                         <div class="@if (session()->get('activemenu') == $module->ModuleName) active @endif">
-                            <a class="nav-link" href="{{ $module->ModuleLink }}">
+                            <a class="nav-link d-flex gap-2 align-items-center" href="{{ $module->ModuleLink }}">
                                 <i class="fas fa-fw fa-calendar"></i>
                                 <span class="fw-bold">{{ $module->ModuleName }}</span></a>
                         </div>

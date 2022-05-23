@@ -41,7 +41,7 @@
             Computer Science Universitas Bina Nusantara. Konten tersedia mulai dari
             materi semester 1 s.d 4, dan dapat diakses secara daring melalui situs ini.</p>
 
-        <form action="/login" method="POST">
+        <form action="/login" method="POST" class="form-login">
             @csrf
             {{-- <div class="mb-3">
                 <label for="NIM" class="form-label text-white">NIM</label>

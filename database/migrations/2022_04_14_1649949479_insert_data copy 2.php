@@ -33,6 +33,7 @@ return new class extends Migration
 
         DB::table('msuser')->insert(['NIM' => '0000000000', 'Name' => 'UserAdmin']);
         DB::table('msuser')->insert(['NIM' => '0000000001', 'Name' => 'User']);
+        DB::table('msuser')->insert(['NIM' => '2400000001', 'Name' => 'Anak B24']);
 
         DB::table('msadmin')->insert(['NIM' => '0000000000', 'RoleID' => '1', 'BinusianID' => '24']);
 
@@ -40,6 +41,7 @@ return new class extends Migration
         DB::table('msadminpassword')->insert(['BinusianID' => '24', 'PasswordAdmin' => '$2y$10$A67m/I5sdq.bvxg8oeRd3eT7s0Hz4Cr9r8x9Fgs1pcU1rbaAL9nua']);
 
         DB::table('msmodule')->insert(['ModuleName' => 'Course', 'ModuleLink' => '/']);
+        DB::table('msmodule')->insert(['ModuleName' => 'Software', 'ModuleLink' => '/software']);
         DB::table('msmodule')->insert(['ModuleName' => 'Admin', 'ModuleLink' => '/admin']);
 
         DB::table('msprivilege')->insert(['ModuleID' => '1', 'BinusianID' => '24']);
