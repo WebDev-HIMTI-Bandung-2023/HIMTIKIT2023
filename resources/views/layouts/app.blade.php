@@ -141,7 +141,7 @@
                         </div>
                     </li>
                 @endforeach
-                @if (Session::get('isAdmin') == 'True')
+                @if (Session::get('isAdmin') == true)
                     <li class="nav-item ListItem">
                         <div class="@if (session()->get('activemenu') == 'Admin') active @endif">
                             <a class="nav-link d-flex gap-2 align-items-center" href="/admin">
