@@ -11873,10 +11873,47 @@ body.sidebar-toggled footer.sticky-footer {
     }
 }
 body {
-    background-image: url("../img/SPONSOR\ BANDUNG\ 2.png");
+    background-image: url("../img/bg.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+.nav-tabs {
+    margin-left: 40px;
+}
+
+.nav-tabs .nav-link {
+    background-color: #015791 !important;
+    color: white;
+    margin-right: 2px;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    padding: 10px 30px;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #fafafa !important;
+    color: #081e29;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #fafafa !important;
+    color: #081e29;
+}
+
+.tab-content {
+    background-color: #fafafa !important;
+}
+
+.tab-content .card .card-body {
+    background-color: #015791 !important;
+    color: white;
+}
+
+.tab-content .card .btn {
+    background-color: #fafafa !important;
+    color: black;
 }
 
 .footer-wrapper {

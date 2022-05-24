@@ -39,12 +39,12 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        #wrapper {
+        /* #wrapper {
             background-image: url('../img/bg.png') !important;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
-        }
+        } */
 
     </style>
 </head>
@@ -222,6 +222,7 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
+
 </body>
 
 </html>
