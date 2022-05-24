@@ -18,4 +18,16 @@ class UserController extends Controller
             return redirect('/login');
         }
     }
+
+    public function software(Request $request)
+    {
+        session_start();
+        // dd($request->session()->get('isAdmin'));
+        if ($request->session()->get('Name')) {
+            $request->session()->put('activemenu', 'Software');
+            return view('software');
+        } else {
+            return redirect('/login');
+        }
+    }
 }
