@@ -10,10 +10,33 @@ class UserController extends Controller
     public function index(Request $request)
     {
         session_start();
-        // dd($request->session()->get('isAdmin'));
         if ($request->session()->get('Name')) {
             $request->session()->put('activemenu', 'Course');
-            return view('index');
+            $MajorList = DB::select("select * from ltmajor");
+            $SmtList = DB::select("select * from ltsmt");
+            $MajorCourseList = DB::select("SELECT mjc.CourseID, CourseName, CourseDescription, CourseImage, SmtID FROM msmajorcourse AS mjc JOIN ltcourse as lc ON lc.CourseID = mjc.CourseID WHERE MajorID = " . $MajorList[0]->MajorID);
+
+            return view('index', ['MajorList' => $MajorList, 'SmtList' => $SmtList, 'MajorCourseList' => $MajorCourseList]);
+        } else {
+            return redirect('/login');
+        }
+    }
+
+    public function changeMajor(Request $request)
+    {
+        session_start();
+        if ($request->session()->get('Name')) {
+            $request->validate([
+                'major' => 'required'
+            ]);
+            $Major = $request->major;
+
+            $request->session()->put('activemenu', 'Course');
+            $MajorList = DB::select("select * from ltmajor");
+            $SmtList = DB::select("select * from ltsmt");
+            $MajorCourseList = DB::select("SELECT mjc.CourseID, CourseName, CourseDescription, CourseImage FROM msmajorcourse AS mjc JOIN ltcourse as lc ON lc.CourseID = mjc.CourseID WHERE MajorID = " . $Major);
+
+            return view('index', ['MajorList' => $MajorList, 'SmtList' => $SmtList, 'MajorCourseList' => $MajorCourseList]);
         } else {
             return redirect('/login');
         }
@@ -22,7 +45,6 @@ class UserController extends Controller
     public function software(Request $request)
     {
         session_start();
-        // dd($request->session()->get('isAdmin'));
         if ($request->session()->get('Name')) {
             $request->session()->put('activemenu', 'Software');
             return view('software');

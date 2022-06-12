@@ -18,6 +18,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [UserController::class, 'index']);
+Route::post('/changeMajor', [UserController::class, 'changeMajor']);
 Route::get('/software', [UserController::class, 'software']);
 Route::post('/Logout', [LoginController::class, 'Logout']);
 Route::get('/login', [LoginController::class, 'index']);

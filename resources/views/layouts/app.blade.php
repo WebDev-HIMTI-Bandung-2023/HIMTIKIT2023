@@ -45,7 +45,6 @@
             background-attachment: fixed;
             background-size: cover;
         } */
-
     </style>
 </head>
 
@@ -151,10 +150,12 @@
                     </li>
                 @endif
             @else
-                <li class="nav-item">
-                    <a class="nav-link" href="/calendar">
-                        <i class="fas fa-fw fa-calendar"></i>
-                        <span>No Module</span></a>
+                <li class="nav-item ListItem">
+                    <div>
+                        <a class="nav-link d-flex gap-2 align-items-center" href="/admin">
+                            <i class="fas fa-fw fa-calendar"></i>
+                            <span class="fw-bold">No Module</span></a>
+                    </div>
                 </li>
             @endif
         </ul>
