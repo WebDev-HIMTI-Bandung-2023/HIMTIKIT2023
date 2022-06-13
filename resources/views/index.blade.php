@@ -38,25 +38,27 @@
             @php
                 $SmtCount = 0;
             @endphp
-            @foreach ($MajorCourseList as $MajorCourse)
+            @foreach ($SmtList as $Smt)
                 @if ($SmtCount++ == 0)
                     <div class="tab-pane fade show active p-4"
                         id="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}" role="tabpanel"
                         aria-labelledby="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}-tab">
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                            @if ($MajorCourse->SmtID == 1)
-                                <div class="col">
-                                    <div class="card">
-                                        <img src="./public/storage/files/{{ $MajorCourse->CourseImage }}"
-                                            class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ $MajorCourse->CourseName }}</h5>
-                                            <p class="card-text">{{ $MajorCourse->CourseDescription }}</p>
-                                            <a href="#" class="btn btn-primary float-right">Download</a>
+                            @foreach ($MajorCourseList as $MajorCourse)
+                                @if ($MajorCourse->SmtID == $Smt->SmtID)
+                                    <div class="col">
+                                        <div class="card">
+                                            <img src="./public/storage/files/{{ $MajorCourse->CourseImage }}"
+                                                class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ $MajorCourse->CourseName }}</h5>
+                                                <p class="card-text">{{ $MajorCourse->CourseDescription }}</p>
+                                                <a href="#" class="btn btn-primary float-right">Download</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 @else
@@ -64,7 +66,7 @@
                         role="tabpanel" aria-labelledby="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}-tab">
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                             @foreach ($MajorCourseList as $MajorCourse)
-                                @if ($MajorCourse->SmtID == 2)
+                                @if ($MajorCourse->SmtID == $Smt->SmtID)
                                     <div class="col">
                                         <div class="card">
                                             <img src="./public/storage/files/{{ $MajorCourse->CourseImage }}"
