@@ -13,76 +13,37 @@
     </form>
     <div class="">
         <ul class="nav nav-tabs" id="semesterTab" role="tablist">
-            @php
-                $SmtCount = 0;
-            @endphp
             @foreach ($SmtList as $Smt)
-                @if ($SmtCount++ == 0)
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                            data-bs-target="#semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}" type="button"
-                            role="tab" aria-controls="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}"
-                            aria-selected="true">{{ $Smt->SmtName }}</button>
-                    </li>
-                @else
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="home-tab" data-bs-toggle="tab"
-                            data-bs-target="#semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}" type="button"
-                            role="tab" aria-controls="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}"
-                            aria-selected="true">{{ str_replace('Semester ', '', $Smt->SmtName) }}</button>
-                    </li>
-                @endif
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="home-tab" data-bs-toggle="tab"
+                        data-bs-target="#semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}" type="button"
+                        role="tab" aria-controls="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}"
+                        aria-selected="true">{{ $loop->first ? $Smt->SmtName : str_replace('Semester ', '', $Smt->SmtName) }}</button>
+                </li>
             @endforeach
         </ul>
         <div class="tab-content" id="semesterTabContent">
-            @php
-                $SmtCount = 0;
-            @endphp
             @foreach ($SmtList as $Smt)
-                @if ($SmtCount++ == 0)
-                    <div class="tab-pane fade show active p-4"
-                        id="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}" role="tabpanel"
-                        aria-labelledby="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}-tab">
-                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                            @foreach ($MajorCourseList as $MajorCourse)
-                                @if ($MajorCourse->SmtID == $Smt->SmtID)
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="./public/storage/files/{{ $MajorCourse->CourseImage }}"
-                                                class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{ $MajorCourse->CourseName }}</h5>
-                                                <p class="card-text">{{ $MajorCourse->CourseDescription }}</p>
-                                                <a href="#" class="btn btn-primary float-right">Download</a>
-                                            </div>
+                <div class="tab-pane fade p-4 {{ $loop->first ? 'show active' : '' }}"
+                    id="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}" role="tabpanel"
+                    aria-labelledby="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}-tab">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        @foreach ($MajorCourseList as $MajorCourse)
+                            @if ($MajorCourse->SmtID == $Smt->SmtID)
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="{{ $MajorCourse->CourseImage }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $MajorCourse->CourseName }}</h5>
+                                            <p class="card-text">{{ $MajorCourse->CourseDescription }}</p>
+                                            <a href="#" class="btn btn-primary float-right">Download</a>
                                         </div>
                                     </div>
-                                @endif
-                            @endforeach
-                        </div>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
-                @else
-                    <div class="tab-pane fade p-4" id="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}"
-                        role="tabpanel" aria-labelledby="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}-tab">
-                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                            @foreach ($MajorCourseList as $MajorCourse)
-                                @if ($MajorCourse->SmtID == $Smt->SmtID)
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="./public/storage/files/{{ $MajorCourse->CourseImage }}"
-                                                class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{ $MajorCourse->CourseName }}</h5>
-                                                <p class="card-text">{{ $MajorCourse->CourseDescription }}</p>
-                                                <a href="#" class="btn btn-primary float-right">Download</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
+                </div>
             @endforeach
         </div>
     </div>

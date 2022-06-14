@@ -20,6 +20,8 @@ return new class extends Migration
         DB::table('ltsmt')->insert(['SmtID' => 4,  'SmtName' => 'Semester 4']);
 
         DB::table('msbinusianid')->insert(['BinusianID' => 24,  'BinusianName' => 'Binusian 24']);
+        DB::table('msbinusianid')->insert(['BinusianID' => 25,  'BinusianName' => 'Binusian 25']);
+        DB::table('msbinusianid')->insert(['BinusianID' => 26,  'BinusianName' => 'Binusian 26']);
 
         DB::table('ltrole')->insert(['RoleName' => 'Admin']);
 
@@ -34,6 +36,8 @@ return new class extends Migration
         DB::table('msuser')->insert(['NIM' => '0000000000', 'Name' => 'UserAdmin']);
         DB::table('msuser')->insert(['NIM' => '0000000001', 'Name' => 'User']);
         DB::table('msuser')->insert(['NIM' => '2400000001', 'Name' => 'Anak B24']);
+        DB::table('msuser')->insert(['NIM' => '2500000001', 'Name' => 'Anak B25']);
+        DB::table('msuser')->insert(['NIM' => '2600000001', 'Name' => 'Anak B26']);
 
         DB::table('msadmin')->insert(['NIM' => '0000000000', 'RoleID' => '1', 'BinusianID' => '24']);
 
