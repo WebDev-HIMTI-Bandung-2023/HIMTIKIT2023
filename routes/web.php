@@ -18,9 +18,14 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [UserController::class, 'index']);
+Route::post('/changeMajor', [UserController::class, 'changeMajor']);
+Route::get('/software', [UserController::class, 'software']);
 Route::post('/Logout', [LoginController::class, 'Logout']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/UploadData', [AdminController::class, 'UploadData']);
+// Route::post('/UploadData', [AdminController::class, 'UploadData']);
 Route::post('/admin', [AdminController::class, 'authenticateadmin']);
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/ChangeBinusian', [AdminController::class, 'Logout']);
+Route::get('/admin/{Course}/{Type}', [AdminController::class, 'addeditadmin']);
+Route::post('/admin/{Course}/{Type}', [AdminController::class, 'UploadData']);

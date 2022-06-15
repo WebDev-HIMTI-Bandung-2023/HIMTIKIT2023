@@ -5,23 +5,38 @@
   $("#sidebarToggle, #sidebarToggleTop").on('click', function (e) {
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
+    $("#content-wrapper").toggleClass("BlockDark");
     if ($(".sidebar").hasClass("toggled")) {
       $('.sidebar .collapse').collapse('hide');
-      $('.CardWelcome').addClass("d-none");
-    }
-    else {
-      $('.CardWelcome').removeClass("d-none");
     };
   });
+  $("#userDropdown").on('click', function (e) {
+    if (!$(".sidebar").hasClass("toggled")) {
+      $("body").toggleClass("sidebar-toggled");
+      $(".sidebar").toggleClass("toggled");
+      $("#content-wrapper").toggleClass("BlockDark");
+
+      $('.sidebar .collapse').collapse('hide');
+    };
+  });
+  window.addEventListener('click', function (e) {
+
+    if (e.target != this.document.querySelector('#accordionSidebar') && e.target != this.document.querySelector('#sidebarToggleTop')
+      && e.target != this.document.querySelector('#IconBar')
+      && !$(".sidebar").hasClass("toggled")) {
+      $("body").toggleClass("sidebar-toggled");
+      $(".sidebar").toggleClass("toggled");
+      $("#content-wrapper").toggleClass("BlockDark");
+    }
+  })
 
   // Close any open menu accordions when window is resized below 768px
   $(window).resize(function () {
     if ($(window).width() < 768) {
       $('.sidebar .collapse').collapse('hide');
-      $('.CardWelcome').addClass("d-none");
-    }
-    else {
-      $('.CardWelcome').removeClass("d-none");
+      if ($("#content-wrapper").hasClass("BlockDark")) {
+        $("#content-wrapper").toggleClass("BlockDark");
+      }
     };
 
     // Toggle the side navigation when window is resized below 480px
