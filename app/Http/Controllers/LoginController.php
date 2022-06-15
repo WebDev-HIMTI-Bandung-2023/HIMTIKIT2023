@@ -31,7 +31,7 @@ class LoginController extends Controller
         $attendee = DB::Table('msuser')->where('NIM', $nim)->first();
         if (!$attendee) {
             $message = 'Attendance failed, please check your NIM again, make sure it is correct';
-            return back()->with('LoginError', 'Login Failed!');
+            return back()->with('LoginError', $message);
         }
         $ListModule = DB::select("select * from msprivilege as mp JOIN msmodule AS mm ON mm.ModuleID = mp.ModuleID WHERE BinusianID = LEFT('" . $nim . "', 2)");
         $isadmin = DB::select("select * from msadmin as ms JOIN msbinusianid AS mbdi ON mbdi.BinusianID = ms.BinusianID WHERE NIM = '" . $nim  . "'");

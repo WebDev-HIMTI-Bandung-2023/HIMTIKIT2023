@@ -49,6 +49,7 @@ return new class extends Migration
         DB::table('msmodule')->insert(['ModuleName' => 'Admin', 'ModuleLink' => '/admin']);
 
         DB::table('msprivilege')->insert(['ModuleID' => '1', 'BinusianID' => '24']);
+        DB::table('msprivilege')->insert(['ModuleID' => '2', 'BinusianID' => '24']);
         // DB::table('ltcourse')->insert(['CourseName' => 'Math Discrete', 'CourseDescription' => 'Math Discrete', 'FileName' => '']);
         // DB::table('ltcourse')->insert(['CourseName' => 'Linear Algebra', 'CourseDescription' => 'Linear Algebra', 'FileName' => '']);
         // DB::table('ltcourse')->insert(['CourseName' => 'Computer Security Fundamental', 'CourseDescription' => 'Computer Security Fundamental', 'FileName' => '']);
