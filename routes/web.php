@@ -29,3 +29,8 @@ Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/ChangeBinusian', [AdminController::class, 'Logout']);
 Route::get('/admin/{Course}/{Type}', [AdminController::class, 'addeditadmin']);
 Route::post('/admin/{Course}/{Type}', [AdminController::class, 'UploadData']);
+
+/* Front end only */
+Route::get('/newpage', function () {
+    return view('newpage');
+});
