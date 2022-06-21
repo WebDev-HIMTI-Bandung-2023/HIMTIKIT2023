@@ -11923,3 +11923,7 @@ body {
     padding: 0.5rem;
     z-index: 1;
 }
+
+.nav-tabs {
+    border: none !important;
+}
