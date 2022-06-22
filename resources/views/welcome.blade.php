@@ -36,10 +36,9 @@
 
     <div class="container d-flex flex-column min-vh-100 justify-content-center align-items-center">
         <h1 class="text-white text-title">HIMTI KIT</h1>
-        <p class="text-white text-description text-justify mw-5">HIMTI KIT adalah kit pembelajaran untuk para mahasiswa
-            baru School of
-            Computer Science Universitas Bina Nusantara. Konten tersedia mulai dari
-            materi semester 1 s.d 4, dan dapat diakses secara daring melalui situs ini.</p>
+        <p class="text-white text-description text-justify mw-5">HIMTI KIT is a learning kit for new students in 
+            School of Computer Science Bina Nusantara University. 
+            Provided materials start from semester 1 to 4 and can be accessed online through this website.</p>
 
         <form action="/login" method="POST" class="form-login">
             @csrf

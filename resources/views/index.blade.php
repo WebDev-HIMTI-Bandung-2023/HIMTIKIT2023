@@ -5,7 +5,7 @@
     @section('content')
         <form action="/changeMajor" method="POST" class="mb-5">
             @csrf
-            <h4 class="text-white">Pilih jurusan Kamu</h4>
+            <h4 class="text-white">Choose Your Major</h4>
             <select class="form-select" name="major" aria-label="Major Select" onchange="this.form.submit()">
                 @foreach ($MajorList as $major)
                     <option value="{{ $major->MajorID }}"
