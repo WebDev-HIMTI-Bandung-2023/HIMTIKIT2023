@@ -26,15 +26,14 @@ Route::get('/software', [UserController::class, 'software']);
 Route::post('/changeMajor', [UserController::class, 'changeMajor']);
 Route::get('/download/{Course}', [UserController::class, 'DownloadMaterial']);
 
-Route::post('/admin', [AdminController::class, 'authenticateadmin']);
+Route::post('/adminAuth', [AdminController::class, 'authenticateadmin']);
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/ChangeBinusian', [AdminController::class, 'Logout']);
 Route::get('/admin/{Course}/{Type}', [AdminController::class, 'addeditadmin']);
 Route::post('/admin/{Course}/{Type}', [AdminController::class, 'UploadData']);
 
-Route::get('/adminsoftware', function () {
-    return view('adminsoftware');
-});
+Route::get('/adminsoftware', [AdminController:: class, 'authSoftware']);
+
 Route::get('/addeditsoftware', function () {
     return view('addeditsoftware');
 });

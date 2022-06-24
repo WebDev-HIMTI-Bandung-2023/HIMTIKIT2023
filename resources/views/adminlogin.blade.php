@@ -8,7 +8,7 @@
         </div>
     @endif
     <div class="card p-5">
-        <form action="/admin" method="POST">
+        <form action="/adminAuth" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="Password" class="form-label">Binusian ID</label>

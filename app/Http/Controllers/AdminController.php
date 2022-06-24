@@ -43,6 +43,7 @@ class AdminController extends Controller
 
     public function authenticateadmin(Request $request)
     {
+
         $hashedPassword = Hash::make($request->Password);
         if (Hash::check($request->Password,  DB::Table('msadminpassword')->where('BinusianID', $request->BinusianID)->first()->PasswordAdmin)) {
             $request->session()->put('BinusianID', $request->BinusianID);
@@ -183,7 +184,13 @@ class AdminController extends Controller
             return redirect('/login');
         }
     }
-
+    public function authSoftware(Request $request){
+        if(!$request->session()->get('IsAdmin')){
+            return redirect('/admin');
+        }else{
+            return view('adminsoftware');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
