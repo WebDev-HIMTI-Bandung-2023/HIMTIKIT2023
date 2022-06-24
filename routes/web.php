@@ -18,12 +18,13 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [UserController::class, 'index']);
-Route::get('/software', [UserController::class, 'software']);
-Route::post('/changeMajor', [UserController::class, 'changeMajor']);
 Route::post('/Logout', [LoginController::class, 'Logout']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::get('/download/{Course}', [LoginController::class, 'authenticate']);
+
+Route::get('/software', [UserController::class, 'software']);
+Route::post('/changeMajor', [UserController::class, 'changeMajor']);
+Route::get('/download/{Course}', [UserController::class, 'DownloadMaterial']);
 
 Route::post('/admin', [AdminController::class, 'authenticateadmin']);
 Route::get('/admin', [AdminController::class, 'index']);

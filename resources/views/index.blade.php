@@ -36,22 +36,37 @@
                                 @if ($MajorCourse->SmtID == $Smt->SmtID)
                                     <div class="col">
                                         <div class="card">
-                                            <img src="{{ $MajorCourse->CourseImage }}" class="card-img-top" alt="...">
+                                            <img src="{{ $MajorCourse->CourseImage }}" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title">{{ $MajorCourse->CourseName }}</h5>
+                                                <h5 class="card-title fw-bold">{{ $MajorCourse->CourseName }}</h5>
                                                 <p class="card-text">{{ $MajorCourse->CourseDescription }}</p>
-                                                <button type="button" href="#" class="btn float-right bg-white" data-toggle="modal" data-target="#download">Download</button>
-                                                <div class="modal fade" id="download" tabindex="-1" role="dialog" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document" style="background-color: #015791">
+                                                <button type="button" href="#"
+                                                    class="btn btn-primary float-right bg-white" data-toggle="modal"
+                                                    data-target="#download-{{ $MajorCourse->CourseID }}">Download</button>
+                                                <div class="modal fade" id="download-{{ $MajorCourse->CourseID }}"
+                                                    tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document"
+                                                        style="background-color: #015791">
                                                         <div class="modal-content" style="background-color: #015791">
-                                                        <div class="modal-body" style="color: white" class="d-flex" style="text-center">
-                                                            <div class="text-center h3">Are you sure want to download the file?</div>
-                                                            <div class="text-center h5">File name</div>
-                                                        </div>
-                                                        <div class="modal-footer" style="justify-content: center !important">
-                                                            <button type="button" class="btn btn-secondary h3" data-dismiss="modal" style="font-weight: bold; margin: 1vw; color: black; background-color: #E8F1F5;">NO</button>
-                                                            <button type="button" class="btn btn-primary h3" style="font-weight: bold; margin: 1vw; color: black; background-color: #E8F1F5;">YES</button>
-                                                        </div>
+                                                            <div class="modal-body" style="color: white" class="d-flex"
+                                                                style="text-center">
+                                                                <div class="text-center h3">Are you sure want to download
+                                                                    the file?</div>
+                                                                <div class="text-center h5">
+                                                                    {{ str_replace('public/files/', '', $MajorCourse->FileName) }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer"
+                                                                style="justify-content: center !important">
+                                                                <button type="button" class="btn btn-secondary h3"
+                                                                    data-dismiss="modal"
+                                                                    style="font-weight: bold; margin: 1vw; color: black; background-color: #E8F1F5;">NO</button>
+                                                                <button type="button" type="_blank"
+                                                                    class="btn btn-primary h3" data-dismiss="modal"
+                                                                    style="font-weight: bold; margin: 1vw; color: black; background-color: #E8F1F5;"
+                                                                    onclick="window.open('download/{{ $MajorCourse->CourseID }}', '_blank')">YES</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
