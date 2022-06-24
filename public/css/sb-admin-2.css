@@ -11927,3 +11927,41 @@ body {
         margin-left: 0;
     }
 }
+
+.responsive-tabs .nav-tabs {
+    display: none;
+}
+
+.responsive-tabs .collapse {
+    transition: all 0.25s ease;
+}
+
+.responsive-tabs .collapsible_group ~ .collapse.show {
+    margin-top: 1rem;
+    transition: all 0.25s ease;
+}
+
+@media (min-width: 768px) {
+    .responsive-tabs .nav-tabs {
+        display: flex;
+    }
+
+    .responsive-tabs .collapsible_group {
+        display: none;
+    }
+
+    .responsive-tabs .collapse {
+        display: block;
+    }
+
+    .responsive-tabs .collapsible_group ~ .collapse.show {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .responsive-tabs .tab-pane {
+        display: block !important;
+        opacity: 1;
+    }
+}
