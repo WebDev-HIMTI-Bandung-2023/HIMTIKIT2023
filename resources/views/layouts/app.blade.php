@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <script type="module" src="/pwabuilder-sw-register.js"></script>
+    {{-- <script type="module" src="/pwabuilder-sw-register.js"></script> --}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,8 +12,8 @@
     <title>{{ config('app.name', 'HIMTI Dashboard') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/cssua.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/cssua.min.js') }}"></script> --}}
     <script>
         function adjustDate(element) {
             // Localize date and time
@@ -29,23 +29,15 @@
 
     <!-- Styles -->
     <!-- Custom styles for this template-->
-    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        crossorigin="anonymous">
+    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <!-- Custom fonts for this template-->
     <link href="{{ asset('fonts/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* #wrapper {
-            background-image: url('../img/bg.png') !important;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-        } */
-    </style>
 </head>
 
 <body class="sidebar-toggled">
@@ -58,7 +50,7 @@
             <i class="fa fa-bars" id="IconBar"></i>
         </button>
         <div class="d-flex flex-column">
-            <h3 class="WelcomeText m-0">Welcome to HIMTI KIT,</h3>
+            <h3 class="WelcomeText m-0 fw-bold">Welcome to HIMTI KIT</h3>
             <p class="WelcomeText m-0">The perfect starter kit for your study in day-to-day basis</p>
         </div>
 
@@ -73,27 +65,14 @@
             @else
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-white small">{{ Session::get('Name') }}</span>
                         <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown">
-                        {{-- <a class="dropdown-item" href="#">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Settings
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Activity Log
-                                    </a>
-                                    <div class="dropdown-divider"></div> --}}
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                             Logout
@@ -112,16 +91,10 @@
         <ul class="navbar-nav sidebar sidebar-light accordion toggled" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            {{-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div class="sidebar-brand-icon">
-                    <img src="{{ asset('img/HIMTI.svg') }}" alt="" width="50px">
-                </div>
-                <div class="sidebar-brand-text mx-3">HIMTI</div>
-            </a> --}}
             <div>
                 <div class="card mx-auto CardWelcome my-4" style="width: 90%;">
                     <div class="card-body">
-                        <h6 class="card-title">Hello, {{ Session::get('Name') }}</h6>
+                        <h6 class="card-title fw-bold">Hello, {{ Session::get('Name') }}</h6>
                         <h6 class="card-subtitle mb-2 text-muted">{{ Session::get('NIM') }}</h6>
                     </div>
                 </div>
@@ -216,13 +189,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.js') }}"></script>
-
-    <!-- Page level plugins -->
-    <script src="{{ asset('fonts/vendor/chart.js/Chart.min.js') }}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
 
 </body>
 

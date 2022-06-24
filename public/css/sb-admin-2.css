@@ -3815,8 +3815,8 @@ input[type="button"].btn-block {
     display: block;
     min-height: 1.5rem;
     padding-left: 1.5rem;
+    print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
-    color-adjust: exact;
 }
 
 .custom-control-inline {
@@ -4326,7 +4326,8 @@ input[type="button"].btn-block {
 }
 
 .nav-tabs {
-    border-bottom: 1px solid #dddfeb;
+    margin-left: 40px;
+    border: none !important;
 }
 
 .nav-tabs .nav-link {
@@ -11808,7 +11809,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .ListItem .active .nav-link:hover {
-    background-color: #fafafa;
+    background-color: #e5e5e5;
 }
 
 @media (max-width: 768px) {
@@ -11879,10 +11880,6 @@ body {
     background-size: cover;
 }
 
-.nav-tabs {
-    margin-left: 40px;
-}
-
 .nav-tabs .nav-link {
     background-color: #015791 !important;
     color: white;
@@ -11924,6 +11921,8 @@ body {
     z-index: 1;
 }
 
-.nav-tabs {
-    border: none !important;
+@media only screen and (max-width: 768px) {
+    .nav-tabs {
+        margin-left: 0;
+    }
 }
