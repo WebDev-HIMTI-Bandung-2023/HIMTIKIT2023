@@ -51,7 +51,9 @@ class UserController extends Controller
         session_start();
         if ($request->session()->get('Name')) {
             $request->session()->put('activemenu', 'Software');
-            return view('software');
+            $SoftwareList = DB::select("select * from ltsoftware");
+
+            return view('software', ['SoftwareList' => $SoftwareList]);
         } else {
             return redirect('/login');
         }
