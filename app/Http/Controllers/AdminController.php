@@ -41,6 +41,19 @@ class AdminController extends Controller
         }
     }
 
+    public function AdminSoftware(Request $request)
+    {
+        if ($request->session()->get('IsAdmin')) {
+            $request->session()->put('activemenu', 'AdminSoftware');
+            $Binusian = DB::Table('msbinusianid')->where('BinusianID', $request->session()->get('BinusianID'))->first();
+            $SoftwareList = DB::select("select * from ltsoftware WHERE BinusianID = " . $Binusian->BinusianID);
+
+            return view('adminsoftware', ['SoftwareList' => $SoftwareList, 'Binusian' => $Binusian]);
+        } else {
+            return redirect('/admin');
+        }
+    }
+
     public function authenticateadmin(Request $request)
     {
 
@@ -68,6 +81,7 @@ class AdminController extends Controller
             return back()->with('LoginError', 'Password Invalid!');
         }
     }
+
     public function addeditadmin(Request $request, $Course, $type)
     {
         if ($request->session()->get('IsAdmin') == "True") {
@@ -94,6 +108,27 @@ class AdminController extends Controller
             return redirect('/');
         }
     }
+    public function AddEditSoftware(Request $request, $SoftwareID, $type)
+    {
+        if ($request->session()->get('IsAdmin') == "True") {
+            if ($type == 'edit') {
+                $Binusian = DB::Table('msbinusianid')->where('BinusianID', $request->session()->get('BinusianID'))->first();
+                $SoftwareInformation = DB::Table('ltsoftware')->where(['SoftwareID' => $SoftwareID, 'BinusianID' => $Binusian->BinusianID])->first();
+                return view('addeditsoftware', ['Binusian' => $Binusian, 'Software' => $SoftwareInformation, 'Type' => 'edit']);
+            } else if ($type == 'add') {
+                $Binusian = DB::Table('msbinusianid')->where('BinusianID', $request->session()->get('BinusianID'))->first();
+                return view('addeditsoftware', ['Binusian' => $Binusian, 'Type' => 'add']);
+            } else if ($type == "delete") {
+                DB::delete('delete from ltsoftware where SoftwareID = ' . $SoftwareID);
+                return redirect('/admin');
+            } else {
+                return redirect('/admin');
+            }
+        } else {
+            return redirect('/');
+        }
+    }
+
     public function Logout()
     {
         session()->forget('BinusianID');
@@ -117,6 +152,9 @@ class AdminController extends Controller
             } else {
                 if ($Type == "add") {
                     $request->validate([
+                        'Course' => 'required|max:255',
+                        'Image' => 'required|url|max:255',
+                        'Description' => 'required|max:255',
                         'UploadFile' => ['required', 'max:200000']
                     ]);
                     session_start();
@@ -145,6 +183,9 @@ class AdminController extends Controller
                 } else if ($Type == "edit") {
                     if ($request->File == "Add") {
                         $Validate = $request->validate([
+                            'Course' => 'required|max:255',
+                            'Image' => 'required|url|max:255',
+                            'Description' => 'required|max:255',
                             'UploadFile' => ['required', 'max:200000']
                         ]);
 
@@ -184,11 +225,43 @@ class AdminController extends Controller
             return redirect('/login');
         }
     }
-    public function authSoftware(Request $request){
-        if(!$request->session()->get('IsAdmin')){
-            return redirect('/admin');
-        }else{
-            return view('adminsoftware');
+    public function UploadSoftware(Request $request, $Software, $Type)
+    {
+
+        if ($request->session()->get('NIM')) {
+
+            $isadmin = DB::select("select * from msadmin as ms JOIN msbinusianid AS mbdi ON mbdi.BinusianID = ms.BinusianID WHERE NIM = '" . $request->session()->get('NIM') . "'");
+            if ($isadmin == null) {
+                return redirect('/');
+            } else {
+                if ($Type == "add") {
+                    $request->validate([
+                        'Software' => 'required|max:255',
+                        'Image' => 'required|url|max:255',
+                        'Description' => 'required|max:255',
+                        'Url' => 'required|url'
+                    ]);
+
+                    session_start();
+                    $BinusianID = $request->session()->get('BinusianID');
+                    DB::insert("INSERT INTO ltsoftware (SoftwareName, SoftwareImage, SoftwareDescription, SoftwareUrl, BinusianID) VALUES('" . $request->Software . "', '" . $request->Image . "', '" . $request->Description . "','" . $request->Url ."','" . $BinusianID . "')");
+                    return redirect('/adminsoftware');
+                } else if ($Type == "edit") {
+                    $request->validate([
+                        'Software' => 'required|max:255',
+                        'Image' => 'required|url|max:255',
+                        'Description' => 'required|max:255',
+                        'Url' => 'required|url'
+                    ]);
+
+                    DB::update("UPDATE ltsoftware SET SoftwareName = '" . $request->Software . "', SoftwareDescription = '" . $request->Description . "',SoftwareImage ='" . $request->Image ."', SoftwareUrl ='" . $request->Url . "' WHERE SoftwareID = " . $Software);
+                    return redirect('/adminsoftware');
+                } else {
+                    return redirect('/adminsoftware');
+                }
+            }
+        } else {
+            return redirect('/login');
         }
     }
     /**

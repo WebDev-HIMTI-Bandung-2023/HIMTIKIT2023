@@ -12,7 +12,7 @@ class UserController extends Controller
         session_start();
         if ($request->session()->get('isAdmin') == true) {
             return redirect('/admin');
-        } else if (count($request->session()->get('ListModule')) == 1 && $request->session()->get('ListModule')[0]->ModuleLink == '/software') {
+        } else if ($request->session()->get('ListModule') && count($request->session()->get('ListModule')) == 1 && $request->session()->get('ListModule')[0]->ModuleLink == '/software') {
             return redirect('/software');
         } else if ($request->session()->get('Name')) {
             $request->session()->put('activemenu', 'Course');

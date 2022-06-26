@@ -74,7 +74,6 @@
     </div>
     <script>
         function PopUpDeleteModal(CourseID) {
-            console.log("asda");
             document.getElementById("DeleteButtonModal").href = "/admin/" + CourseID + "/delete";
             $('#DeleteModal').modal('show');
         }

@@ -32,7 +32,9 @@ Route::get('/ChangeBinusian', [AdminController::class, 'Logout']);
 Route::get('/admin/{Course}/{Type}', [AdminController::class, 'addeditadmin']);
 Route::post('/admin/{Course}/{Type}', [AdminController::class, 'UploadData']);
 
-Route::get('/adminsoftware', [AdminController:: class, 'authSoftware']);
+Route::get('/adminsoftware', [AdminController::class, 'AdminSoftware']);
+Route::get('/adminsoftware/{Software}/{Type}', [AdminController::class, 'AddEditSoftware']);
+Route::post('/adminsoftware/{Software}/{Type}', [AdminController::class, 'UploadSoftware']);
 
 Route::get('/addeditsoftware', function () {
     return view('addeditsoftware');

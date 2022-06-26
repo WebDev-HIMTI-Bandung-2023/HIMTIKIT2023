@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+@if($errors->any())
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ $errors->first() }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 <script>var count = 0;</script>
     <div class="card mb-3">
         <div class="card-body">
