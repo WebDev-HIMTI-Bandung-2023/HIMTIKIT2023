@@ -76,7 +76,7 @@ class UserController extends Controller
         $isExist = DB::Table('msmajorcourse')->where(['CourseID' => $CourseID, 'BinusianID' => DB::raw("LEFT('" . $request->session()->get('NIM') . "', 2)")])->first();
         if ($isExist) {
             $course = DB::Table('ltcourse')->where('CourseID', $CourseID)->first();
-            return response()->download(storage_path('app/' . $course->FileName));
+            return response()->download(storage_path('app/' . $course->FileName), str_replace(" ", "_", $course->CourseName) . '.' . pathinfo($course->FileName, PATHINFO_EXTENSION));
         } else {
             return abort('403');
         }

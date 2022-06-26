@@ -17,16 +17,16 @@
                                 data-toggle="modal" data-target="#download-{{ $Software->SoftwareID }}">Download</button>
                             <div class="modal fade" id="download-{{ $Software->SoftwareID }}" tabindex="-1"
                                 role="dialog" aria-hidden="true">
-                                <div class="modal-dialog" role="document" style="background-color: #015791">
-                                    <div class="modal-content" style="background-color: #015791">
-                                        <div class="modal-body" style="color: white" class="d-flex" style="text-center">
-                                            <div class="text-center h3">Are you sure want to download the file?</div>
+                                <div class="modal-dialog p-4 border-0" role="document" style="background-color: #015791; border-radius: 10px">
+                                    <div class="modal-content border-0" style="background-color: #015791">
+                                        <div class="modal-body border-0 pb-3" style="color: white" class="d-flex" style="text-center">
+                                            <div class="text-center h4">Are you sure want to download the file?</div>
                                         </div>
-                                        <div class="modal-footer" style="justify-content: center !important">
+                                        <div class="modal-footer border-0 pt-0" style="justify-content: center !important">
                                             <button type="button" class="btn btn-secondary h3" data-dismiss="modal"
-                                                style="font-weight: bold; margin: 1vw; color: black; background-color: #E8F1F5;">NO</button>
+                                                style="font-weight: 800; padding: 10px 20px; margin: 1vw; color: black; background-color: #E8F1F5; border-radius: 15px;">NO</button>
                                             <button type="button" class="btn btn-primary h3" data-dismiss="modal"
-                                                style="font-weight: bold; margin: 1vw; color: black; background-color: #E8F1F5;"
+                                                style="font-weight: 800; padding: 10px 20px; margin: 1vw; color: black; background-color: #E8F1F5; border-radius: 15px;"
                                                 onclick="window.open('{{ $Software->SoftwareUrl }}', '_blank')">YES</button>
                                             <div>*After clicking yes, you will be redirected to the link</div>
                                         </div>
