@@ -57,7 +57,7 @@ return new class extends Migration
         // DB::table('ltcourse')->insert(['CourseName' => 'Algorithm & Programming', 'CourseDescription' => 'Algorithm & Programming', 'FileName' => '']);
         // DB::table('ltcourse')->insert(['CourseName' => 'Mobile Creative Design', 'CourseDescription' => 'Mobile Creative Design', 'FileName' => '']);
 
-        DB::table('ltsoftware')->insert(['SoftwareID' => '1', 'SoftwareName' => 'Dev-C++', 'SoftwareImage' => 'https://a.fsdn.com/allura/p/orwelldevcpp/icon?1480458710?&w=90', 'SoftwareDescription' => 'A free, portable, fast and simple C/C++ IDE', 'SoftwareUrl' => 'https://sourceforge.net/projects/orwelldevcpp/']);
+        DB::table('ltsoftware')->insert(['SoftwareID' => '1', 'SoftwareName' => 'Dev-C++', 'SoftwareImage' => 'https://a.fsdn.com/allura/p/orwelldevcpp/icon?1480458710?&w=90', 'SoftwareDescription' => 'A free, portable, fast and simple C/C++ IDE', 'SoftwareUrl' => 'https://sourceforge.net/projects/orwelldevcpp/', 'BinusianID' => '24']);
     }
 
     /**

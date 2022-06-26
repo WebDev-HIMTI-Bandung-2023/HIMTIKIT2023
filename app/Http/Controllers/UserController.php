@@ -12,6 +12,8 @@ class UserController extends Controller
         session_start();
         if ($request->session()->get('isAdmin') == true) {
             return redirect('/admin');
+        } else if (count($request->session()->get('ListModule')) == 1 && $request->session()->get('ListModule')[0]->ModuleLink == '/software') {
+            return redirect('/software');
         } else if ($request->session()->get('Name')) {
             $request->session()->put('activemenu', 'Course');
             $MajorList = DB::select("select * from ltmajor");
@@ -50,8 +52,13 @@ class UserController extends Controller
     {
         session_start();
         if ($request->session()->get('Name')) {
+            $hasModule = DB::Table('msprivilege')->join('msmodule', 'msprivilege.ModuleID', '=', 'msmodule.ModuleID')->where(['msmodule.ModuleLink' => '/software', 'msprivilege.BinusianID' => DB::raw("LEFT('" . $request->session()->get('NIM') . "', 2)")])->first();
+            if (!$hasModule) {
+                return redirect('/');
+            }
+
             $request->session()->put('activemenu', 'Software');
-            $SoftwareList = DB::select("select * from ltsoftware");
+            $SoftwareList = DB::select("select * from ltsoftware WHERE BinusianID = LEFT('" . $request->session()->get('NIM') . "', 2)");
 
             return view('software', ['SoftwareList' => $SoftwareList]);
         } else {

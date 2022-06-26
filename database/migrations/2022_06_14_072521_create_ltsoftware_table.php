@@ -4,13 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateLtsoftwareTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('ltsoftware', function (Blueprint $table) {
@@ -19,6 +14,8 @@ return new class extends Migration
             $table->string('SoftwareImage');
             $table->string('SoftwareDescription');
             $table->string('SoftwareUrl');
+            $table->integer('BinusianID');
+            $table->foreign('BinusianID')->references('BinusianID')->on('msbinusianid');
         });
     }
 
