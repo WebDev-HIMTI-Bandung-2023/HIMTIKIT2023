@@ -15,14 +15,14 @@ class UserController extends Controller
         } else if ($request->session()->get('Name')) {
             $request->session()->put('activemenu', 'Course');
             $MajorList = DB::select("select * from ltmajor");
-            $SmtList = DB::select("SELECT DISTINCT ls.SmtID, ls.SmtName from ltsmt AS ls RIGHT JOIN msmajorcourse AS mjc ON ls.SmtID = mjc.SmtID WHERE mjc.MajorID = " . $MajorList[0]->MajorID);
-            $MajorCourseList = DB::select("SELECT mjc.CourseID, CourseName, CourseDescription, CourseImage, `FileName`, SmtID FROM msmajorcourse AS mjc JOIN ltcourse as lc ON lc.CourseID = mjc.CourseID WHERE MajorID = " . $MajorList[0]->MajorID . " ORDER BY SmtID ASC");
+            $SmtList = DB::select("SELECT DISTINCT ls.SmtID, ls.SmtName from ltsmt AS ls RIGHT JOIN msmajorcourse AS mjc ON ls.SmtID = mjc.SmtID WHERE mjc.MajorID = " . $MajorList[0]->MajorID . " AND BinusianID = LEFT('" . $request->session()->get('NIM') . "', 2)");
+            $MajorCourseList = DB::select("SELECT mjc.CourseID, CourseName, CourseDescription, CourseImage, `FileName`, SmtID FROM msmajorcourse AS mjc JOIN ltcourse as lc ON lc.CourseID = mjc.CourseID WHERE MajorID = " . $MajorList[0]->MajorID . " AND BinusianID = LEFT('" . $request->session()->get('NIM') . "', 2) ORDER BY SmtID ASC");
 
             if ($request->session()->get('Major')) {
                 $Major = $request->session()->get('Major');
 
-                $SmtList = DB::select("SELECT DISTINCT ls.SmtID, ls.SmtName from ltsmt AS ls RIGHT JOIN msmajorcourse AS mjc ON ls.SmtID = mjc.SmtID WHERE mjc.MajorID = " . $Major);
-                $MajorCourseList = DB::select("SELECT mjc.CourseID, CourseName, CourseDescription, CourseImage, `FileName`, SmtID FROM msmajorcourse AS mjc JOIN ltcourse as lc ON lc.CourseID = mjc.CourseID WHERE MajorID = " . $Major . " ORDER BY SmtID ASC");
+                $SmtList = DB::select("SELECT DISTINCT ls.SmtID, ls.SmtName from ltsmt AS ls RIGHT JOIN msmajorcourse AS mjc ON ls.SmtID = mjc.SmtID WHERE mjc.MajorID = " . $Major . " AND BinusianID = LEFT('" . $request->session()->get('NIM') . "', 2)");
+                $MajorCourseList = DB::select("SELECT mjc.CourseID, CourseName, CourseDescription, CourseImage, `FileName`, SmtID FROM msmajorcourse AS mjc JOIN ltcourse as lc ON lc.CourseID = mjc.CourseID WHERE MajorID = " . $Major . " AND BinusianID = LEFT('" . $request->session()->get('NIM') . "', 2) ORDER BY SmtID ASC");
             }
 
             return view('index', ['MajorList' => $MajorList, 'SmtList' => $SmtList, 'MajorCourseList' => $MajorCourseList]);
@@ -66,16 +66,12 @@ class UserController extends Controller
             return redirect('/login');
         }
 
-        $MajorList = DB::select("select * from ltmajor");
-        $MajorCourseList = DB::select("SELECT mjc.CourseID, CourseName, CourseDescription, SmtID FROM msmajorcourse AS mjc JOIN ltcourse as lc ON lc.CourseID = mjc.CourseID WHERE MajorID = " . $MajorList[0]->MajorID . " ORDER BY SmtID ASC");
-
-        $isExist = array_search($CourseID, array_column($MajorCourseList, "CourseID"));
-
-        if (false !== $isExist) {
+        $isExist = DB::Table('msmajorcourse')->where(['CourseID' => $CourseID, 'BinusianID' => DB::raw("LEFT('" . $request->session()->get('NIM') . "', 2)")])->first();
+        if ($isExist) {
             $course = DB::Table('ltcourse')->where('CourseID', $CourseID)->first();
             return response()->download(storage_path('app/' . $course->FileName));
         } else {
-            return abort('404');
+            return abort('403');
         }
     }
 }

@@ -122,7 +122,7 @@
                         </div>
                     </li>
                     <li class="nav-item ListItem">
-                        <div class="@if (session()->get('activemenu') == 'Admin') active @endif">
+                        <div class="@if (session()->get('activemenu') == 'AdminSoftware') active @endif">
                             <a class="nav-link d-flex gap-2 align-items-center" href="/adminsoftware">
                                 <i class="fas fa-fw fa-calendar"></i>
                                 <span class="fw-bold">Software</span></a>
