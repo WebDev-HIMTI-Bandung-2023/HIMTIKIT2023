@@ -142,14 +142,14 @@
         <!-- End of Sidebar -->
 
         <!-- Main Content -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column justify-content-between">
 
             <div class="container my-3">@yield('content')</div>
 
             <!-- Footer -->
-            <div class="footer-wrapper">
+            <footer class="footer-wrapper fixed-bottom">
                 <span class="fw-bold">HIMTI KIT @2022</span>
-            </div>
+            </footer>
             <!-- End of footer -->
         </div>
         <!-- End of Content Wrapper -->

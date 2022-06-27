@@ -11918,12 +11918,16 @@ body {
     background-color: #014b7d;
     color: white;
     margin-top: auto;
+    margin-left: 240px;
     padding: 0.5rem;
     z-index: 1;
 }
 
 @media only screen and (max-width: 768px) {
     .nav-tabs {
+        margin-left: 0;
+    }
+    .footer-wrapper{
         margin-left: 0;
     }
 }
