@@ -53,7 +53,7 @@
                                         @if ($MajorCourse->SmtID == $Smt->SmtID)
                                             <div class="col">
                                                 <div class="card">
-                                                    <img src="{{ $MajorCourse->CourseImage }}" class="card-img-top"
+                                                    <img src="{{ $MajorCourse->CourseImage }}" class="card-img-top m-auto" style="height: 250px; object-fit: cover"
                                                         alt="...">
                                                     <div class="card-body">
                                                         <h5 class="card-title fw-bold">{{ $MajorCourse->CourseName }}
