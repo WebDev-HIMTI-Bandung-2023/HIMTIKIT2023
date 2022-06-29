@@ -4,7 +4,7 @@
 
     @section('content')
         @if (isset($MajorList))
-            <form action="/changeMajor" method="POST" class="mb-5">
+            <form action="/changeMajor" method="POST" class="mt-2 mb-5">
                 @csrf
                 <h4 class="text-white">Choose Your Major</h4>
                 <select class="form-select" name="major" aria-label="Major Select" onchange="this.form.submit()">
@@ -31,7 +31,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <div class="tab-content" id="semesterTabContent">
+                <div class="tab-content rounded mb-5" id="semesterTabContent">
                     @foreach ($SmtList as $Smt)
                         <div class="card tab-pane fade p-4 {{ $loop->first ? 'show active' : '' }}"
                             id="semester-{{ str_replace('Semester ', '', $Smt->SmtName) }}" role="tabpanel"
@@ -48,17 +48,20 @@
                                 class="collapse {{ $loop->first ? 'show' : '' }}" data-bs-parent="#content"
                                 role="tabpanel"
                                 aria-labelledby="heading-{{ str_replace('Semester ', '', $Smt->SmtName) }}">
-                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                                <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-4">
                                     @foreach ($MajorCourseList as $MajorCourse)
                                         @if ($MajorCourse->SmtID == $Smt->SmtID)
                                             <div class="col">
-                                                <div class="card">
-                                                    <img src="{{ $MajorCourse->CourseImage }}" class="card-img-top m-auto" style="height: 250px; object-fit: cover"
-                                                        alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title fw-bold">{{ $MajorCourse->CourseName }}
+                                                <div class="card rounded h-100 shadow">
+                                                    <img src="{{ $MajorCourse->CourseImage }}"
+                                                        class="card-img-top m-auto" style="height: 180px; object-fit: cover"
+                                                        alt="{{ $MajorCourse->CourseName }}">
+                                                    <div class="card-body d-flex flex-column d-sm-block">
+                                                        <h5 class="card-title fw-bold text-truncate">
+                                                            {{ $MajorCourse->CourseName }}
                                                         </h5>
-                                                        <p class="card-text">{{ $MajorCourse->CourseDescription }}</p>
+                                                        <p class="card-text text-truncate-2">
+                                                            {{ $MajorCourse->CourseDescription }}</p>
                                                         <button type="button" href="#"
                                                             class="btn btn-primary float-right bg-white" data-toggle="modal"
                                                             data-target="#download-{{ $MajorCourse->CourseID }}">Download</button>
