@@ -4,7 +4,7 @@
 
     @section('content')
         @if (isset($MajorList))
-            <form action="/changeMajor" method="POST" class="mt-2 mb-5">
+            <form action="/changeMajor" method="POST" class=" mb-5">
                 @csrf
                 <h4 class="text-white">Choose Your Major</h4>
                 <select class="form-select" name="major" aria-label="Major Select" onchange="this.form.submit()">
@@ -69,7 +69,7 @@
                                                             id="download-{{ $MajorCourse->CourseID }}" tabindex="-1"
                                                             role="dialog" aria-hidden="true">
                                                             <div class="modal-dialog p-4 border-0" role="document"
-                                                                style="background-color: #015791; border-radius: 10px">
+                                                                style="background-color: #015791; border-radius: 10px; max-width: 450px;">
                                                                 <div class="modal-content border-0"
                                                                     style="background-color: #015791">
                                                                     <div class="modal-body border-0 pb-3"
@@ -79,7 +79,7 @@
                                                                             to
                                                                             download
                                                                             the file?</div>
-                                                                        <div class="text-center h6">
+                                                                        <div class="text-center">
                                                                             {{ str_replace(' ', '_', $MajorCourse->CourseName) . '.' . pathinfo($MajorCourse->FileName, PATHINFO_EXTENSION) }}
                                                                         </div>
                                                                     </div>

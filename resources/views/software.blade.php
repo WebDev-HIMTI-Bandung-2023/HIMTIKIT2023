@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card rounded p-4 mt-2 mb-5">
+    <div class="card rounded p-4 mb-5">
         <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-4">
             @foreach ($SoftwareList as $Software)
                 <div class="col">
@@ -18,7 +18,7 @@
                             <div class="modal fade" id="download-{{ $Software->SoftwareID }}" tabindex="-1"
                                 role="dialog" aria-hidden="true">
                                 <div class="modal-dialog p-4 border-0" role="document"
-                                    style="background-color: #015791; border-radius: 10px">
+                                    style="background-color: #015791; border-radius: 10px; max-width: 450px;">
                                     <div class="modal-content border-0" style="background-color: #015791">
                                         <div class="modal-body border-0 pb-3" style="color: white" class="d-flex"
                                             style="text-center">

@@ -57,27 +57,23 @@
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
 
-            <div class="topbar-divider d-none d-sm-block"></div>
             @if (Session::get('NIM') == null)
                 <li class="nav-item">
-                    <a class="nav-link" hbody class="sidebar-toggled" ref="/login">Login</a>
+                    <a class="nav-link" body class="sidebar-toggled" href="/login">
+                        <button class="btn btn-primary bg-white text-black fw-bold">
+                            <i class="fas fa-sign-in-alt fa-sm fa-fw"></i>
+                            Log In
+                        </button>
+                    </a>
                 </li>
             @else
-                <!-- Nav Item - User Information -->
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-white small">{{ Session::get('Name') }}</span>
-                        <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <button class="btn btn-primary bg-white text-black fw-bold">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
+                            Log Out
+                        </button>
                     </a>
-                    <!-- Dropdown - User Information -->
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                        aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Logout
-                        </a>
-                    </div>
                 </li>
             @endif
 
@@ -144,7 +140,7 @@
         <!-- Main Content -->
         <div id="content-wrapper" class="d-flex flex-column justify-content-between">
 
-            <div class="container my-3">@yield('content')</div>
+            <div class="container my-4">@yield('content')</div>
 
             <!-- Footer -->
             <footer class="footer-wrapper fixed-bottom">
@@ -160,23 +156,21 @@
         </a>
 
         <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog p-3 border-0" role="document"
+                style="background-color: #015791; border-radius: 10px; width: 400px;">
+                <div class="modal-content border-0" style="background-color: #015791">
+                    <div class="modal-body border-0 pb-4" style="color: white" class="d-flex" style="text-center">
+                        <div class="text-center h5">Are you sure want to Logout from this site?
+                        </div>
                     </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <div class="modal-footer border-0 pt-0" style="justify-content: center !important">
+                        <button type="button" class="btn btn-secondary h3" data-dismiss="modal"
+                            style="font-weight: 800; padding: 10px 20px; margin: 1vw; color: black; background-color: #E8F1F5; border-radius: 15px;">NO</button>
                         <form id="logout-form" action="/Logout" method="POST">
                             @csrf
-                            <button class="btn btn-primary" type="submit">Logout</button>
+                            <button type="submit" class="btn btn-primary h3"
+                                style="font-weight: 800; padding: 10px 20px; margin: 1vw; color: black; background-color: #E8F1F5; border-radius: 15px;">YES</button>
                         </form>
                     </div>
                 </div>
