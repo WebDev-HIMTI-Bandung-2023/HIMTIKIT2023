@@ -39,12 +39,9 @@
             align-items: center;
         }
 
-        .main .text {
-            width: 100%;
-        }
-
         lottie-player {
-            width: 60vw;
+            width: 480px;
+            margin-left: -180px;
         }
 
         h1 {
@@ -59,6 +56,7 @@
             font-family: 'Nunito', sans-serif;
             font-weight: 600;
             font-size: 2.5em;
+            white-space: nowrap;
             color: white;
             margin: 0;
             margin-bottom: 25px;
@@ -91,7 +89,12 @@
             transform: translateY(2px);
         }
 
-        @media (min-width: 1366px) {
+        @media (min-width: 1367px) {
+            lottie-player {
+                margin: 0;
+                width: 28vw;
+            }
+
             h1 {
                 font-size: 4vw;
             }
@@ -115,6 +118,8 @@
 
             lottie-player {
                 width: 300px;
+                margin: 0;
+                margin-bottom: -50px;
             }
 
             h1,
@@ -123,14 +128,19 @@
             }
         }
 
-        @media (max-width: 350px) {
+        @media (max-width: 300px) {
             lottie-player {
                 width: 90vw;
+                margin: 0;
             }
 
             h1,
             h2 {
                 font-size: 10vw;
+            }
+
+            h1 {
+                margin-top: -20px;
             }
         }
 
