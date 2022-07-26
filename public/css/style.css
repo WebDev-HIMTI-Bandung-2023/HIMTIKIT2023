@@ -50,8 +50,14 @@
     position: absolute;
     top: 40px;
     right: 10px;
-    width: 100px;
+    width: 180px;
     animation: astronaut-move 20s forwards;
+}
+
+@media screen and (max-width: 1200px) {
+    .astronaut {
+        animation: astronaut-move-mobile 20s forwards;
+    }
 }
 
 .comet {
@@ -64,7 +70,13 @@
 
 @keyframes astronaut-move {
     to {
-        transform: translate(-300px, -150px) rotate(-360deg);
+        transform: translate(-340px, 40px) rotate(-360deg);
+    }
+}
+
+@keyframes astronaut-move-mobile {
+    to {
+        transform: translate(-380px, -200px) rotate(-360deg);
     }
 }
 
