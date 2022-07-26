@@ -104,7 +104,7 @@
                     <li class="nav-item ListItem">
                         <div class="@if (session()->get('activemenu') == $module->ModuleName) active @endif">
                             <a class="nav-link d-flex gap-2 align-items-center" href="{{ $module->ModuleLink }}">
-                                <i class="fas fa-fw fa-calendar"></i>
+                                <i class="fas fa-fw fa-dice-d6"></i>
                                 <span class="fw-bold">{{ $module->ModuleName }}</span></a>
                         </div>
                     </li>
@@ -113,15 +113,15 @@
                     <li class="nav-item ListItem">
                         <div class="@if (session()->get('activemenu') == 'Admin') active @endif">
                             <a class="nav-link d-flex gap-2 align-items-center" href="/admin">
-                                <i class="fas fa-fw fa-calendar"></i>
-                                <span class="fw-bold">Admin</span></a>
+                                <i class="fas fa-fw fa-tools"></i>
+                                <span class="fw-bold">Manage Course</span></a>
                         </div>
                     </li>
                     <li class="nav-item ListItem">
                         <div class="@if (session()->get('activemenu') == 'AdminSoftware') active @endif">
                             <a class="nav-link d-flex gap-2 align-items-center" href="/adminsoftware">
-                                <i class="fas fa-fw fa-calendar"></i>
-                                <span class="fw-bold">Software</span></a>
+                                <i class="fas fa-fw fa-tools"></i>
+                                <span class="fw-bold">Manage Software</span></a>
                         </div>
                     </li>
                 @endif
